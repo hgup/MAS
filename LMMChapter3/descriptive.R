@@ -1,4 +1,4 @@
-ratpup <- read.table("C:\\temp\\rat_pup.dat", h = T)
+ratpup <- read.table("http://www-personal.umich.edu/~bwest/rat_pup.dat", h = T)
 ratpup
 
 attach(ratpup)
@@ -7,6 +7,7 @@ treatment <- ordered(treatment, levels=c("High","Low","Control"))
 
 g <-
 function(x)c(N=length(x), MEAN=mean(x,na.rm=TRUE),SD=sd(x,na.rm=TRUE), MIN=min(x,na.rm=TRUE),MAX=max(x,na.rm=TRUE))
+library(Hmisc)
 summarize(weight,by=llist(treatment,sex),g)
 
 library(lattice)
@@ -28,3 +29,4 @@ plt
 update(plt, par.settings = list(fontsize = list(text = 10, points = 5)))
 
 detach(ratpup)
+
