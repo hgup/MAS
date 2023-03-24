@@ -1,5 +1,5 @@
 
-p_grid <- seq( from=0 , to=1 , length.out=1000 ) 
+p_grid <- seq( from=0 , to=1 , length.out=1000 )  # parameter values
 
 prob_p <- rep( 1 , 1000 ) # priori
 
@@ -17,3 +17,12 @@ p_grid[ which.max( posterior ) ] # using posterior
 
 chainmode( samples , adj=0.01 ) # using samples
 
+# weighted average loss when our decision is p=0.5
+sum( posterior*abs( 0.5 - p_grid ) )
+
+loss <- sapply( p_grid , function(d) sum( posterior*abs( d - p_grid ) ) )
+
+dens(loss)
+
+p_grid[ which.min(loss) ] # it is the same as the sample median
+median( samples ) # close to it

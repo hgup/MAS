@@ -18,6 +18,8 @@ posterior <- posterior / sum( posterior )
 samples <- NULL
 # we are drawing p values (some very common (mode), some RARE (tails))
 gen_sample <- function(){
+# sample( from_VALUES , given their probabilities, size of the sample, with replacement? can repeat?)
+  
 return( sample( p_grid , prob=posterior , size=1e4 , replace=TRUE ) )
 } 
 samples <- gen_sample()
