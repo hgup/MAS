@@ -38,6 +38,7 @@ abline( h=272 , lty=1 , lwd=0.5 ) # Wadlow (Alton giant)
 mtext( "b ~ dlnorm(0,10)" )
 xbar <- mean(d2$weight)
 
+# plot with the right constraints
 for (i in 1:N ) curve( a[i] + b[i]*(x - xbar) , 
                        from=min(d2$weight) , to=max(d2$weight) , add=TRUE , 
                        col=col.alpha("black",0.2) )
