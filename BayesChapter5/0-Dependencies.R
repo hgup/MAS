@@ -7,3 +7,4 @@ d <- WaffleDivorce #copy
 d$D <- standardize( d$Divorce )
 d$M <- standardize( d$Marriage )
 d$A <- standardize( d$MedianAgeMarriage )
+
